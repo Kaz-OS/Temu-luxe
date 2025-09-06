@@ -1,0 +1,52 @@
+<header>
+  <nav>
+    <ul class="left-bar">
+         <li><a href="/">Menu</a></li>
+         <li><a href="/rechercher"><img src="/src/assets/icon-navbar/Ellipse.png" alt="">  Rechercher</a></li>
+    </ul>
+    <ul class="right-bar">
+         <li><a href="/wishlist"><img src="src/assets/icon-navbar/Wihlist.png"></a></li>
+         <li><a href="/user"><img src="src/assets/icon-navbar/User.png" alt=""></a></li>
+         <li><a href="/cart"><img src="src/assets/icon-navbar/Cart.png" alt=""></a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+
+@font-face {
+  font-family: 'Nobel';
+  src: url(/public/font/Nobel/fonts/fonnts.com-Nobel_Light.otf);
+}
+
+nav {
+  font-family: 'Nobel';
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.left-bar, .right-bar {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+
+  & a {
+    text-decoration: none;
+    color: black;
+
+  }
+}
+
+.right-bar {
+  margin-right: 1rem;
+}
+
+.left-bar {
+
+  margin-left: 3rem;
+   gap: 4rem;
+}
+
+</style>

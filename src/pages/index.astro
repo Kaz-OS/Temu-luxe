@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <video autoplay muted loop id="video">
+    <source src="/src/assets/background-header/background.mp4">
+  </video>
+  <section id="hero">
+    <img src="/src/assets/icon-temu/Sticky.png" alt="TEMU.icon">
+    <a href=""></a>
+  </section>
+  <section id="news">
+
+  </section>
+</Layout>
+
+<style>
+#video {
+  position: fixed;
+  z-index: -1;
+  margin-top: -6rem;
+  right: 0;
+  left: 0;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
+}
+</style>
