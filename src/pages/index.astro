@@ -4,34 +4,43 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout>
   <video autoplay muted loop id="video">
-    <source src="/src/assets/background-header/background.mp4" type="video/mp4">
+    <source src="/public/background-header/background.mp4" type="video/mp4">
   </video>
 
   <div class="video-veil"></div>
 
   <section id="hero">
-    <img src="/src/assets/icon-temu/Sticky.png" alt="TEMU.icon">
-    <a href="#news"><img src="/src/assets/icon-navbar/Vector.png" alt=""></a>
+    <img src="/public/icon-temu/Sticky.png" alt="TEMU.icon">
+    <a href="#news"><img src="/public/icon-navbar/Vector.png" alt=""></a>
   </section>
   <section id="news">
     <div class="card1">
       <img src="/src/assets/news-image/card1.png" alt="">
+      <div class="inside">
       <h1>SMARTPHONES</h1>
       <h2>Les miniPhones</h2>
       <a href="">Découvrir la collection</a>
+      </div>
     </div>
     <div class="card2">
       <img src="/src/assets/news-image/card2.png" alt="">
+      <div class="inside">
       <h1>CUISINE</h1>
       <h2>L'ustensile indispensable</h2>
       <a href="">Découvrir la collection</a>
+      </div>
     </div>
     <div class="card3">
       <img src="/src/assets/news-image/card3.png" alt="">
+      <div class="inside">
       <h1>ORDINATEUR</h1>
       <h2>La puissance d'AMD</h2>
       <a href="">Découvrir la collection</a>
+      </div>
     </div>
+  </section>
+  <section id="miniPhones">
+    <img src="" alt="">
   </section>
 </Layout>
 
@@ -87,14 +96,18 @@ html {
   display: block;
 }
 
+
 #news h1 {
   font-family: 'Nobel';
   font-size: 10px;
+  margin: 2rem 0 0.25rem;
 }
 
 #news h2 {
   font-family: 'Nobel';
   font-size: 24px;
+  margin: 0 0 1.6rem;
+  line-height: 1.1;
 }
 
 #news a {
@@ -103,10 +116,15 @@ html {
   text-decoration: none;
   color: black;
   border: 1px solid black;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 16px;
-  padding-top: 16px;
+  padding: 16px 15px;
+  display: inline-block;
+}
+
+#news .inside {
+  margin-left: 2rem;
+  & a {
+    gap: 2rem;
+  }
 }
 
 </style>
