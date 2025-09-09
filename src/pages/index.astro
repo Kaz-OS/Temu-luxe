@@ -40,9 +40,16 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <div class="image-veil"></div>
   <section id="miniPhones">
-    <img src="" alt="">
+    <div class="image-wrapper">
+      <img src="/background.png" alt="">
+      <div class="image-veil"></div>
+    </div>
+    <a href="">Découvrir la collection</a>
   </section>
+
 </Layout>
 
 <style>
@@ -74,7 +81,7 @@ import Layout from '../layouts/Layout.astro';
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20rem;
+  margin-top: 30rem;
 }
 
 html {
@@ -82,12 +89,14 @@ html {
 }
 
 #news {
-  margin-top: 40rem;
+  margin-top: 45rem;
   display: flex;
   gap: 0.2rem;
   flex-wrap: wrap;
   justify-content: center;
+
 }
+
 #news img {
   max-width: 100%;
   height: auto;
@@ -116,7 +125,7 @@ html {
   font-size: 15px;
   text-decoration: none;
   color: black;
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 16px 15px;
   display: inline-block;
 }
@@ -126,6 +135,51 @@ html {
   & a {
     gap: 2rem;
   }
+}
+
+#miniPhones {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#miniPhones .image-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+#miniPhones .image-wrapper img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: -2;
+}
+
+#miniPhones a {
+  font-family: 'Nobel';
+  font-size: 15px;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+  padding: 16px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -15rem;
+  z-index: 1;
+}
+
+#miniPhones .image-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.126));
+  z-index: 0;
+  pointer-events: none;
 }
 
 </style>
