@@ -46,7 +46,10 @@ import Layout from '../layouts/Layout.astro';
     <div class="image-wrapper">
       <img src="/background.png" alt="">
       <div class="image-veil"></div>
+          <h1>SMARTPHONES</h1>
+      <h2>Les miniPhones</h2>
     </div>
+
     <a href="">Découvrir la collection</a>
   </section>
 
@@ -71,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
 .video-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.126));
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.126));
   z-index: -1;
   pointer-events: none;
 }
@@ -81,7 +84,7 @@ import Layout from '../layouts/Layout.astro';
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 30rem;
+  margin-top: 25rem;
 }
 
 html {
@@ -105,7 +108,6 @@ html {
   object-fit: cover;
   display: block;
 }
-
 
 #news h1 {
   font-family: 'Nobel';
@@ -177,9 +179,31 @@ html {
 #miniPhones .image-veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0.126));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.126));
   z-index: 0;
   pointer-events: none;
 }
 
+
+#miniPhones h1 {
+  font-family: 'Nobel';
+  font-size: 10px;
+  margin: 2rem 0 0.25rem;
+  margin-top: -19rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#miniPhones h2 {
+  font-family: 'Nobel';
+  font-size: 24px;
+  margin: 0 0 1.6rem;
+  line-height: 1.1;
+  color: white;
+  display: flex;
+  justify-content: center;
+
+}
 </style>
