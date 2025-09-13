@@ -53,12 +53,101 @@ import Layout from '../layouts/Layout.astro';
     <a href="">Découvrir la collection</a>
   </section>
 
+  <section id="Sell">
+    <div class="miniPhone-slider" data-product="miniPhone1">
+      <div class="slider-images">
+        <button class="slider-btn prev" aria-label="Précédent">&#8592;</button>
+        <img src="/public/phone-image/miniPhone1.png" alt="miniPhone 2 Pro" class="active">
+        <!-- <img src="/public/phone-image/miniPhone1-2.png" alt="miniPhone 2 Pro version 2"> -->
+        <!-- <img src="/public/phone-image/miniPhone1-3.png" alt="miniPhone 2 Pro version 3"> -->
+        <button class="slider-btn next" aria-label="Suivant">&#8594;</button>
+      </div>
+      <div class="slider-pagination"></div>
+      <h1>miniPhone 2 Pro</h1>
+      <h2>999€</h2>
+    </div>
+    <div class="miniPhone-slider" data-product="miniPhone2">
+      <div class="slider-images">
+        <button class="slider-btn prev" aria-label="Précédent">&#8592;</button>
+        <img src="/public/phone-image/miniPhone2.png" alt="miniPhone 2 Lite" class="active">
+        <!-- <img src="/public/phone-image/miniPhone2-2.png" alt="miniPhone 2 Lite version 2"> -->
+        <!-- <img src="/public/phone-image/miniPhone2-3.png" alt="miniPhone 2 Lite version 3"> -->
+        <button class="slider-btn next" aria-label="Suivant">&#8594;</button>
+      </div>
+      <div class="slider-pagination"></div>
+      <h1>miniPhone 2 Lite</h1>
+      <h2>590€</h2>
+    </div>
+    <div class="miniPhone-slider" data-product="miniPhone3">
+      <div class="slider-images">
+        <button class="slider-btn prev" aria-label="Précédent">&#8592;</button>
+        <img src="/public/phone-image/miniPhone3.png" alt="tinyPhone 2 SE" class="active">
+        <!-- <img src="/public/phone-image/miniPhone3-2.png" alt="tinyPhone 2 SE version 2"> -->
+        <!-- <img src="/public/phone-image/miniPhone3-3.png" alt="tinyPhone 2 SE version 3"> -->
+        <button class="slider-btn next" aria-label="Suivant">&#8594;</button>
+      </div>
+      <div class="slider-pagination"></div>
+      <h1>tinyPhone 2 SE</h1>
+      <h2>390€</h2>
+    </div>
+  </section>
+</style>
+<script>
+// Mini-slider JS pour chaque produit avec pagination
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.miniPhone-slider').forEach(function(slider) {
+    const images = slider.querySelectorAll('.slider-images img');
+    const pagination = slider.querySelector('.slider-pagination');
+  const prevBtn = slider.querySelector('.slider-images .prev');
+  const nextBtn = slider.querySelector('.slider-images .next');
+    let current = 0;
+
+    // Crée les indicateurs
+    function renderPagination() {
+      pagination.innerHTML = '';
+      images.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'slider-dot' + (i === current ? ' active' : '');
+        dot.addEventListener('click', () => {
+          current = i;
+          update();
+        });
+        pagination.appendChild(dot);
+      });
+    }
+
+    function update() {
+      images.forEach((img, i) => img.classList.toggle('active', i === current));
+      renderPagination();
+    }
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', function() {
+        current = (current - 1 + images.length) % images.length;
+        update();
+      });
+      nextBtn.addEventListener('click', function() {
+        current = (current + 1) % images.length;
+        update();
+      });
+    }
+    update();
+  });
+});
+</script>
+
 </Layout>
 
 <style>
 @font-face {
   font-family: 'Nobel';
   src: url(/public/font/Nobel/fonts/fonnts.com-Nobel_Light.otf);
+}
+
+@font-face {
+    font-family: 'NobelRegular';
+    src: url('/public/font/Nobel/fonts/fonnts.com-Nobel_Regular.otf') format('opentype');
+    font-style: normal;
 }
 
 #video {
@@ -86,13 +175,16 @@ import Layout from '../layouts/Layout.astro';
   flex-direction: column;
   margin-top: 25rem;
 }
-
 html {
   scroll-behavior: smooth;
 }
 
 #news {
-  margin-top: 45rem;
+  scroll-margin-top: 8rem; /* ajuste la valeur selon la hauteur souhaitée */
+}
+
+#news {
+  margin-top: 40rem;
   display: flex;
   gap: 0.2rem;
   flex-wrap: wrap;
@@ -127,7 +219,7 @@ html {
   font-size: 15px;
   text-decoration: none;
   color: black;
-  border: 2px solid black;
+  border: 1px solid black;
   padding: 16px 15px;
   display: inline-block;
 }
@@ -204,6 +296,123 @@ html {
   color: white;
   display: flex;
   justify-content: center;
+}
 
+
+#Sell {
+  background: linear-gradient(120deg, #f8f6fa 0%, #f7f3f7 100%);
+  padding: 2rem 0 4rem 0;
+  margin-top: 15rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#Sell .miniPhone-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+  min-width: 320px;
+  max-width: 340px;
+  position: relative;
+  margin: 0 1.5rem;
+}
+
+#Sell .slider-images {
+  width: 260px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+#Sell .slider-images img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  background: #f7f7f7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+#Sell .slider-images img.active {
+  display: block;
+}
+
+#Sell .slider-btn {
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  opacity: 0.7;
+  transition: opacity 0.2s, background 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  color: #222;
+}
+#Sell .slider-btn:hover {
+  opacity: 1;
+  background: #f3e0f7;
+}
+#Sell .slider-images .slider-btn.prev {
+  left: 0.5rem;
+}
+#Sell .slider-images .slider-btn.next {
+  right: 0.5rem;
+}
+
+#Sell .slider-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.7rem 0 0.5rem 0;
+  min-height: 1.2rem;
+}
+#Sell .slider-dot {
+  display: inline-block;
+  width: 22px;
+  height: 4px;
+  border-radius: 2px;
+  background: #d1c6d7;
+  opacity: 0.6;
+  transition: background 0.2s, opacity 0.2s;
+  cursor: pointer;
+}
+#Sell .slider-dot.active {
+  background: #b97fc9;
+  opacity: 1;
+}
+
+#Sell h1 {
+  font-family: 'NobelRegular';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.1;
+  margin: 0.5rem 0 0.2rem 0;
+  text-align: left;
+  width: 100%;
+}
+
+#Sell h2 {
+  font-family: 'Nobel';
+  font-size: 16px;
+  color: #444;
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+  width: 100%;
 }
 </style>
