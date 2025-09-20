@@ -1,0 +1,47 @@
+<footer>
+<div id="left">
+  <p>pays de livraison: France</p>
+</div>
+
+  <img src="/public/icon-temu/Sticky.png" alt="">
+
+<div id="right">
+  <a href="#">Plan du site</a>
+  <a href="#">Mention légales</a>
+  <a href="#">Cookies</a>
+  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Haut de page</a>
+</div>
+
+</footer>
+
+<style>
+@font-face {
+  font-family: 'Nobel';
+  src: url(/font/Nobel/fonts/fonnts.com-Nobel_Light.otf);
+}
+
+
+  footer {
+    font-family: 'Nobel';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2rem 0 2rem;
+
+    & img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    & #right {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+</style>
